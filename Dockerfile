@@ -12,7 +12,7 @@ RUN yarn config delete registry
 RUN yarn config set registry https://registry.npmmirror.com
 RUN yarn install
 
-ARG NEXT_PUBLIC_ENVIRONMENT=production
+ARG NEXT_PUBLIC_ENVIRONMENT=test
 ARG NEXT_PUBLIC_API_URL=http://124.221.36.241:9021
 
 ENV NEXT_PUBLIC_ENVIRONMENT=${NEXT_PUBLIC_ENVIRONMENT}
