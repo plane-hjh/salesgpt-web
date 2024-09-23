@@ -8,16 +8,18 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-RUN npm install
+RUN yarn config delete registry
+RUN yarn config set registry https://registry.npmmirror.com
+RUN yarn install
 
 # 复制所有文件到工作目录
 COPY . .
 
 # 构建项目
-RUN npm run build
+RUN yarn build
 
 # 暴露应用运行的端口
 EXPOSE 3000
 
 # 启动应用
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
